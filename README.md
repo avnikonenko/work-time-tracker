@@ -6,9 +6,6 @@ It counts time as active when the system idle timer says keyboard or mouse
 activity happened within the last 60 seconds. It stores daily and hourly totals
 in SQLite, not keystrokes, mouse positions, window titles, or screenshots.
 
-Hourly charts start from the time this version is running. Older records only
-have daily totals because earlier versions did not store hourly buckets.
-
 ## Example
 
 ![Work Time Tracker dashboard with daily and hourly charts and tracking status](docs/dashboard-example.png)
