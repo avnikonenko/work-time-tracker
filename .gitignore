@@ -1,0 +1,20 @@
+# Local configuration and session notes
+.idea/
+.agents/
+.codex/
+.aws/
+__codex_resume*.md
+SETUP_LOG.md
+
+# Personal activity screenshot and runtime data
+docs/activity-tracker-example.png
+*.sqlite3
+*.sqlite3-*
+*.db
+*.log
+*.pid
+
+# Python runtime files
+__pycache__/
+*.py[cod]
+.venv/
