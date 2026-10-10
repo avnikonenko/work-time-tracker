@@ -13,16 +13,67 @@ have daily totals because earlier versions did not store hourly buckets.
 
 ![Work Time Tracker dashboard with daily and hourly charts and tracking status](docs/dashboard-example.png)
 
-## Commands
+## Installation
+
+Requires a Linux desktop, Python 3.10 or newer, Git, and a browser. No Python
+packages need to be installed. An available idle backend is required to count
+activity; direct input permissions are optional (see the advanced guide below).
+
+Clone into a permanent location without spaces in its path, then install the
+desktop launcher and login autostart as your normal user (no `sudo`):
 
 ```bash
-python3 tools/activity_tracker/activity_tracker.py --serve
-python3 tools/activity_tracker/activity_tracker.py --start
-python3 tools/activity_tracker/activity_tracker.py --open
-python3 tools/activity_tracker/activity_tracker.py --status
-python3 tools/activity_tracker/activity_tracker.py --stop
-python3 tools/activity_tracker/activity_tracker.py --install
-python3 tools/activity_tracker/activity_tracker.py --uninstall
+git clone https://github.com/avnikonenko/work-time-tracker.git "$HOME/work-time-tracker"
+cd "$HOME/work-time-tracker"
+python3 activity_tracker.py --install
+python3 activity_tracker.py --open
+```
+
+The tracker starts automatically when you log into your desktop, rather than
+before login. Open **Work Time Tracker** from your application menu at any time.
+Keep the checkout at this location: the launchers reference its absolute path.
+If you move it, run `--install` again from the new location.
+
+### Optional Terminal Command
+
+For Bash, add this function to `~/.bashrc` (adjust the path if you cloned elsewhere):
+
+```bash
+check-work-time() {
+    case "${1:-}" in
+        ""|--show) python3 "$HOME/work-time-tracker/activity_tracker.py" --open ;;
+        *) python3 "$HOME/work-time-tracker/activity_tracker.py" "$@" ;;
+    esac
+}
+```
+
+Load it into the current terminal, then use:
+
+```bash
+source ~/.bashrc
+check-work-time
+check-work-time --show
+check-work-time --status
+check-work-time --stop
+```
+
+Stopping ends the current session; autostart remains enabled for the next login.
+To disable autostart and remove the launcher, run `python3 activity_tracker.py
+--uninstall` from the checkout. This preserves saved statistics; remove the Bash
+function separately if you added it.
+
+## Commands
+
+Run these from the repository directory:
+
+```bash
+python3 activity_tracker.py --serve
+python3 activity_tracker.py --start
+python3 activity_tracker.py --open
+python3 activity_tracker.py --status
+python3 activity_tracker.py --stop
+python3 activity_tracker.py --install
+python3 activity_tracker.py --uninstall
 ```
 
 The dashboard is served at:
