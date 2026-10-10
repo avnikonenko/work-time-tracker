@@ -9,6 +9,10 @@ in SQLite, not keystrokes, mouse positions, window titles, or screenshots.
 Hourly charts start from the time this version is running. Older records only
 have daily totals because earlier versions did not store hourly buckets.
 
+## Example
+
+![Work Time Tracker dashboard with daily and hourly charts and tracking status](docs/dashboard-example.png)
+
 ## Commands
 
 ```bash
