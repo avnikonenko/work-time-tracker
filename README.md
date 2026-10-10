@@ -29,8 +29,7 @@ python3 activity_tracker.py --install
 python3 activity_tracker.py --open
 ```
 
-The tracker starts automatically when you log into your desktop, rather than
-before login. Open **Work Time Tracker** from your application menu at any time.
+The tracker starts automatically when you log into your desktop. Open **Work Time Tracker** from your application menu at any time.
 Keep the checkout at this location: the launchers reference its absolute path.
 If you move it, run `--install` again from the new location.
 
